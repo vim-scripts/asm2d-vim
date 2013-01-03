@@ -1,0 +1,133 @@
+*asm2d.txt* functionality for the asm2d assembly language
+
+                                          ____     _  ~
+                       __ _ ___ _ __ ___ |___ \ __| | ~
+                      / _` / __| '_ ` _ \  __) / _` | ~
+                     | (_| \__ \ | | | | |/ __/ (_| | ~
+                      \__,_|___/_| |_| |_|_____\__,_| ~
+
+                Functionality for the asm2d assembly language.
+      Includes syntax highlighting, :make command integration, and more!
+
+==============================================================================
+CONTENTS                                                       *asm2dContents*
+
+    1. Usage ................... |asm2dUsage|
+    2. Mappings ................ |asm2dMappings|
+    3. Configuration ........... |asm2dConfig|
+        3.1 asm2d_command ...... |asm2dConfig_command|
+        3.2 asm2d_map_prefix ... |asm2dConfig_map_prefix|
+        3.3 asm2d_map_keys ..... |asm2dConfig_map_keys|
+    4. License ................. |asm2dLicense|
+    5. Bugs .................... |asm2dBugs|
+    6. Contributing ............ |asm2dContributing|
+    7. Changelog ............... |asm2dChangelog|
+    8. Credits ................. |asm2dCredits|
+
+==============================================================================
+Section 1: Usage                                                  *asm2dUsage*
+
+This plugin will automatically provide syntax highlighting for asm2d files
+(files ending in .s2d or .asm2d) and for MIF (Memory Initialization File)
+files (files ending in .mif).
+
+The |makeprg| will be configured so you can run the |:make| command on the
+current file.
+
+==============================================================================
+Section 2: Mappings                                            *asm2dMappings*
+
+All of asm2d's key mappings are prefixed with a single key to group them
+together and avoid shadowing other mappings.  By default this key is
+<localleader>.
+
+See the |asm2dConfig_map_prefix| setting if you'd like this prefix to be
+something else.
+
+See the |asm2dConfig_map_keys| setting if you'd like to disable the key
+mappings (or define your own).
+
+Mappings:
+
+    <prefix>m       open the generated MIF file in a vertical split.
+
+==============================================================================
+Section 3: Configuration                                         *asm2dConfig*
+
+You can tweak the behaviour of asm2d by setting a few variables in your
+|vimrc| file. For example: >
+
+    let g:asm2d_command = "/usr/local/bin/asm2d"
+    let g:asm2d_map_prefix = "<leader>"
+
+------------------------------------------------------------------------------
+3.1 g:asm2d_command                                      *asm2dConfig_command*
+
+This is the program that will be used by the |:make| command.
+
+Default: "asm2d"
+
+------------------------------------------------------------------------------
+3.2 g:asm2d_map_prefix                                *asm2dConfig_map_prefix*
+
+The key that will be used as prefix for all key mappings.
+
+Default: "<localleader>"
+
+------------------------------------------------------------------------------
+3.3 g:asm2d_map_keys                                    *asm2dConfig_map_keys*
+
+Use this variable to disable all key mappings.
+
+Default: 1
+
+By disabling all key mappings, you can define your own mappings.  For example:
+>
+
+    let g:asm2d_map_keys = 0
+    nnoremap mf :call asm2d#running#Asm2dShowMifFile()<cr>
+
+==============================================================================
+Section 4: License                                              *asm2dLicense*
+
+asm2d is copyright Eduardo López Biagi & contributors, 2012+ and is licensed
+under the New BSD license.
+
+==============================================================================
+Section 5: Bugs                                                    *asm2dBugs*
+
+Please report any bugs you may find on the GitHub issue tracker:
+
+    https://github.com/tapichu/asm2d-vim/issues
+
+==============================================================================
+Section 6: Contributing                                    *asm2dContributing*
+
+Think you can make asm2d better?  Awesome.  New contributors are always
+welcome.
+
+Fork the project on GitHub and send a pull request.
+
+    GitHub:     https://github.com/tapichu/asm2d-vim
+
+==============================================================================
+Section 7: Changelog                                          *asm2dChangelog*
+
+v0.0.2
+    * MIF file syntax highlighting.
+    * Open MIF file in a vertical split.
+v0.0.1
+    * Syntax highlighting.
+    * Very basic :make command integration.
+
+==============================================================================
+Section 8: Credits                                              *asm2dCredits*
+
+Written by Eduardo López Biagi.
+
+A lot of the inspiration for the layout of the code came from Steve Losh's
+Learn Vimscript the Hard Way (http://learnvimscriptthehardway.stevelosh.com/).
+
+==============================================================================
+
+vim:tw=78:ts=4:ft=help:norl:

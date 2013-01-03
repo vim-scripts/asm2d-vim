@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4382
+
+asm2d-vim is a lightweight Vim plugin to add syntax highlighting to assembly files for the asm2d (http://tapichu.github.com/asm2d/) assembler.
+
+It also adds syntax highlighting to MIF (http://quartushelp.altera.com/9.1/mergedProjects/reference/glossary/def_mif.htm) files, and it configures the program used by the :make command.
+
+The most recent version can be found on github: http://tapichu.github.com/asm2d-vim/
