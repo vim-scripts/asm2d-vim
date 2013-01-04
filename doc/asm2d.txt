@@ -12,18 +12,19 @@
 ==============================================================================
 CONTENTS                                                       *asm2dContents*
 
-    1. Usage ................... |asm2dUsage|
-    2. Mappings ................ |asm2dMappings|
-    3. Configuration ........... |asm2dConfig|
-        3.1 asm2d_command ...... |asm2dConfig_command|
-        3.2 asm2d_make_params .. |asm2dConfig_make_params|
-        3.2 asm2d_map_prefix ... |asm2dConfig_map_prefix|
-        3.3 asm2d_map_keys ..... |asm2dConfig_map_keys|
-    4. License ................. |asm2dLicense|
-    5. Bugs .................... |asm2dBugs|
-    6. Contributing ............ |asm2dContributing|
-    7. Changelog ............... |asm2dChangelog|
-    8. Credits ................. |asm2dCredits|
+    1. Usage .......................... |asm2dUsage|
+    2. Mappings ....................... |asm2dMappings|
+    3. Configuration .................. |asm2dConfig|
+        3.1 asm2d_command ............. |asm2dConfig_command|
+        3.2 asm2d_make_params ......... |asm2dConfig_make_params|
+        3.3 asm2d_map_prefix .......... |asm2dConfig_map_prefix|
+        3.4 asm2d_map_keys ............ |asm2dConfig_map_keys|
+        3.5 asm2d_comment_next_line ... |asm2dConfig_comment_next_line|
+    4. License ........................ |asm2dLicense|
+    5. Bugs ........................... |asm2dBugs|
+    6. Contributing ................... |asm2dContributing|
+    7. Changelog ...................... |asm2dChangelog|
+    8. Credits ........................ |asm2dCredits|
 
 ==============================================================================
 Section 1: Usage                                                  *asm2dUsage*
@@ -91,7 +92,7 @@ The key that will be used as prefix for all key mappings.
 Default: "<localleader>"
 
 ------------------------------------------------------------------------------
-3.2 g:asm2d_map_keys                                    *asm2dConfig_map_keys*
+3.4 g:asm2d_map_keys                                    *asm2dConfig_map_keys*
 
 Use this variable to disable all key mappings.
 
@@ -102,6 +103,15 @@ By disabling all key mappings, you can define your own mappings.  For example:
 
     let g:asm2d_map_keys = 0
     nnoremap mf :call asm2d#running#Asm2dCompileAndShowMifFile()<cr>
+
+------------------------------------------------------------------------------
+3.5 g:asm2d_comment_next_line                  *asm2dConfig_comment_next_line*
+
+This setting determines if comments that start at the beginning of a line
+should be continued on the next line when hitting <Enter> in insert mode, or
+'o' or 'O' in normal mode.
+
+Default: 1
 
 ==============================================================================
 Section 4: License                                              *asm2dLicense*
@@ -129,6 +139,11 @@ Fork the project on GitHub and send a pull request.
 ==============================================================================
 Section 7: Changelog                                          *asm2dChangelog*
 
+v0.1.0
+    * Compilation errors in quickfix window.
+    * Continue comments on the next line.
+    * Highlight TODO and FIXME notes in comments.
+    * Fix error with syntax priority.
 v0.0.3
     * Add arithmetic operators to asm2d syntax.
     * Compile the MIF file every time it's opened.
